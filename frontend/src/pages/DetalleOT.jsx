@@ -20,7 +20,7 @@ export default function DetalleOT() {
 
   if (!ot) return <h2>Cargando OT...</h2>;
   // BASE URL del backend para OT
-  const API_URL = "http://localhost:4000/api";
+  const API_URL = import.meta.env.VITE_API_URL;
 
   //Botón Exportar PDF
   const handleExportPDF = () => {
@@ -201,3 +201,4 @@ export default function DetalleOT() {
     </>
   );
 }
+
