@@ -10,9 +10,9 @@ export default function Login() {
 
   async function handleLogin(e) {
     e.preventDefault();
-
+    conts API_URL = import.meta.env.VITE_API_URL;
     try {
-      const res = await fetch("http://localhost:4000/api/usuarios/login", {
+      const res = await fetch(`${API_URL}/usuarios/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -79,3 +79,4 @@ export default function Login() {
     </>
   );
 }
+
