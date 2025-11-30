@@ -35,9 +35,10 @@ app.use("/api/pdf", pdfRoutes); //exportar PDF
 
 const PORT = process.env.PORT || 4000;
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log("Backend corriendo en puerto", PORT);
 });
+
 // Test conexión a BD
 pool.query("SELECT NOW()", (err, result) => {
   if (err) {
@@ -46,5 +47,6 @@ pool.query("SELECT NOW()", (err, result) => {
     console.log("✅ Conexión a BD OK:", result.rows[0]);
   }
 });
+
 
 
