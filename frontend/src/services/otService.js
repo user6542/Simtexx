@@ -1,7 +1,7 @@
 // frontend/src/services/otService.js
 
 // URL de backend (Puerto 4000 según el README)
-const API_URL = "http://localhost:4000/api/ot";
+const API_URL = import.meta.env.VITE_API_URL;
 
 // --- NUEVA FUNCIÓN PARA CREAR EN POSTGRESQL ---
 export async function createOT(otData) {
@@ -74,7 +74,7 @@ export async function deleteOTBackend(id) {
 
 //EXPORTACION DE CSV PRA LISTA COMPLETA DE OT //
 export async function exportCSV() {
-  const res = await fetch("http://localhost:4000/api/ot/export/csv");
+  const res = await fetch(`${API_URL}/ot/export/csv`);
 
   if (!res.ok) throw new Error("No se pudo generar CSV");
 
@@ -90,7 +90,7 @@ export async function exportCSV() {
 }
 //EXPORTACION DE PDF DE TODAS LAS OT 
 export async function exportPDF() {
-  const res = await fetch("http://localhost:4000/api/ot/export/pdf");
+  const res = await fetch(`${API_URL}/ot/export/pdf`);
 
   if (!res.ok) throw new Error("No se pudo generar el PDF");
 
@@ -122,4 +122,5 @@ export async function updateOT(id, data) {
     throw err;
   }
 }
+
 
