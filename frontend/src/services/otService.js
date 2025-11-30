@@ -6,7 +6,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 // --- NUEVA FUNCIÓN PARA CREAR EN POSTGRESQL ---
 export async function createOT(otData) {
   try {
-    const response = await fetch(API_URL, {
+    const response = await fetch(`${API_URL}/ot`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ export async function getOTs() {
 // exportacion por ID DE OT
 export async function getOTById(id) {
   try {
-    const response = await fetch(`${API_URL}/${id}`);
+    const response = await fetch(`${API_URL}/ot/${id}`);
     if (!response.ok) {
       throw new Error("No se encontró la OT");
     }
@@ -57,7 +57,7 @@ export async function getOTById(id) {
 //FUNCION PARA DELETE
 export async function deleteOTBackend(id) {
   try {
-    const response = await fetch(`${API_URL}/${id}`, {
+    const response = await fetch(`${API_URL}/ot/${id}`, {
       method: "DELETE",
     });
 
@@ -108,7 +108,7 @@ export async function exportPDF() {
 // UPDATE OT PARA EL MODIFICAR.JSX
 export async function updateOT(id, data) {
   try {
-    const res = await fetch(`${API_URL}/${id}`, {
+    const res = await fetch(`${API_URL}/ot/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -122,6 +122,7 @@ export async function updateOT(id, data) {
     throw err;
   }
 }
+
 
 
 
