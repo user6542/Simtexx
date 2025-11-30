@@ -29,7 +29,7 @@ export async function createOT(otData) {
 // --- FUNCIONES ANTIGUAS (Mantén por ahora para no romper la lista mientras se migra el resto) ---
 export async function getOTs() {
   try {
-    const response = await fetch(API_URL);
+    const response = await fetch(`${API_URL}/ot`);
     if (!response.ok) {
       throw new Error("Error al obtener las OT");
     }
@@ -122,5 +122,6 @@ export async function updateOT(id, data) {
     throw err;
   }
 }
+
 
 
